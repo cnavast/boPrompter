@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>boPrompter test</title>
+	<link rel="stylesheet" type="text/css" href="boPrompter.css" />
+	<style>
+	body {
+		background: #00C9FF;
+		background: -webkit-linear-gradient(to left, #00C9FF , #92FE9D); 
+		background: linear-gradient(to left, #00C9FF , #92FE9D);
+	}
+	</style>
+	<script src="boPrompter.js"></script>
+
+</head>
+<body>
+<script>
+var params = {
+	'content': 'Sup?',
+};
+var p = new boPrompter(params);
+setTimeout(
+	function(){p.editTitle('Huehuehue');}
+	,5000);
+</script>
+</body>
+</html>
