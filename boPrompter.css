@@ -80,17 +80,17 @@
 @-webkit-keyframes bop_card_kf_webkit {
     0% {
         opacity: 0;
-        -webkit-transform: rotateY(315deg);
+        -webkit-transform: translate(-50%, -50%) rotateY(-90deg);
     }
 
     60% {
         opacity: 0.8;
-        -webkit-transform: rotateY(375deg);
+        -webkit-transform: translate(-50%, -50%) rotateY(20deg);
     }
 
     100% {
         opacity: 1;
-        -webkit-transform: rotateY(360deg);
+        -webkit-transform: translate(-50%, -50%) rotateY(0deg);
     }
 }
 
@@ -114,7 +114,7 @@
 .bop_card_anim {
     opacity:0;
     transform-style: preserve-3d;
-    //-webkit-animation: bop_card_kf_webkit 0.5s ease-in-out forwards;
+    -webkit-animation: bop_card_kf_webkit 0.5s linear forwards;
     animation: bop_card_kf 0.5s linear forwards;
 }
 

@@ -9,7 +9,8 @@ var boPrompter = (function(params){
 		'title': 'boPrompter Example',
 		'subtitle': 'This is a boPrompter!',
 		'content': 'How do you turn this on?',
-		'closeText': 'close'
+		'closeText': 'close',
+		'autoshow': true
 	};
 	this.params = defaultParams;
 	for (var key in params) {
@@ -18,6 +19,8 @@ var boPrompter = (function(params){
 			this.params[key] = params[key];
 		}
 	}
+
+	this.showing = false;
 
 	var screen = document.createElement('div');
 	screen.setAttribute('class', 'bop_screen');
@@ -72,12 +75,16 @@ var boPrompter = (function(params){
 	this.html = screen;
 
 	this.show = (function() {
+		if (this.showing) return false;
+		this.showing = true;
 		document.body.appendChild(this.html);
 		closeBtn.addEventListener("click", this.close.bind(this));
 		return true;
 	});
 
 	this.close = (function() {
+		if (!this.showing) return false;
+		this.showing = false;
 		document.body.removeChild(this.html);
 		return true;
 	});
@@ -91,5 +98,9 @@ var boPrompter = (function(params){
 		titleText.nodeValue = newTitle;
 		return true;
 	});
+
+	if (this.autoshow) {
+		this.show();
+	}
 });
 
